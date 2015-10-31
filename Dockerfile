@@ -1,4 +1,4 @@
-FROM google/debian:wheezy
+FROM buildpack-deps:latest
 MAINTAINER Tomohiko Himura <eiel.hal@gmail.com>
 
 ENV STACK_VERSION 0.1.6.0
@@ -8,7 +8,7 @@ ENV PATH $PATH:/root/.local/bin
 ENV LANG C.UTF-8
 
 RUN apt-get update -q && \
-    apt-get install -qy libgmp-dev curl && \
+    apt-get install -qy libgmp-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

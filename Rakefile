@@ -11,3 +11,13 @@ end
 task push: :build do
   sh "docker push #{image_name}"
 end
+
+namespace :setup do
+  task :build do
+    sh "docker build -t #{image_name}:lts-3.11-warp -f Dockerfile_WithWarp ."
+  end
+
+  task push: :build do
+    sh "docker push #{image_name}:lts-3.11-warp"
+  end
+end
